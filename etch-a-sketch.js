@@ -1,4 +1,4 @@
-const gridSize = 4;
+const gridSize = 16;
 
 const container = document.querySelector("#container");
 const containerWidth = container.clientWidth;
@@ -14,6 +14,7 @@ for (let i=0; i<gridSize; i++) {
         square = document.createElement("div");
         square.classList.add("square");
         square.style.cssText = "width: " + squareWidth + "px; height: " + squareHeight + "px;"; 
+        //square.textContent = i + "." + j;
         
         container.appendChild(square);
     }

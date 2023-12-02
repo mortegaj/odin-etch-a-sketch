@@ -1,13 +1,19 @@
-const xSize = 16;
-const ySize = 16;
+const gridSize = 16;
 
 const container = document.querySelector("#container");
-let square;
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight
+console.log(`Contanineer Size - Width: ${containerWidth} Height: ${containerHeight}`);
 
-for (let i=0; i<xSize; i++) {
-    for (let j=0; j<ySize; j++) {
+const squareWidth = containerWidth / gridSize;
+const squareHeight = containerHeight / gridSize;
+console.log(`Sqare Size - Width: ${squareWidth} Height: ${squareHeight}`);
+
+for (let i=0; i<gridSize; i++) {
+    for (let j=0; j<gridSize; j++) {
         square = document.createElement("div");
         square.classList.add("square");
+        
         square.textContent = i+"."+j;
         container.appendChild(square);
     }

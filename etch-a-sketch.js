@@ -14,8 +14,13 @@ for (let i=0; i<gridSize; i++) {
         square = document.createElement("div");
         square.classList.add("square");
         square.style.cssText = "width: " + squareWidth + "px; height: " + squareHeight + "px;"; 
-        //square.textContent = i + "." + j;
         
         container.appendChild(square);
+
+        square.addEventListener ("mouseover", paintSquare);
     }
+}
+
+function paintSquare(e) {
+    if (e.buttons === 1) e.target.style.backgroundColor = "red";
 }

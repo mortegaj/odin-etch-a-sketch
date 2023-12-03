@@ -1,16 +1,14 @@
 let gridSize = 16;
 
-const container = document.querySelector("#container");
-const containerWidth = container.clientWidth;
-const containerHeight = container.clientHeight
+const canvas = document.querySelector("#canvas");
 
 const btn = document.querySelector("#change-size-btn");
 btn.addEventListener("click", changeGridSize);
 
 const resetCanvasBtn = document.querySelector("#reset-canvas-btn");
 resetCanvasBtn.addEventListener("click", () => {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.firstChild);
     }
     drawCanvas();
 })
@@ -21,18 +19,21 @@ const span = document.querySelector("#number-squares");
 drawCanvas();
 
 function drawCanvas() {
-    const squareWidth = containerWidth / gridSize;
-    const squareHeight = containerHeight / gridSize;
+
+    let row;
     let square;
     
     for (let i=0; i<gridSize; i++) {
+        row = document.createElement("div");
+        row.classList.add("row");
+        canvas.appendChild(row);
+
         for (let j=0; j<gridSize; j++) {
             square = document.createElement("div");
             square.classList.add("square");
-            square.style.cssText = "width: " + squareWidth + "px; height: " + squareHeight + "px;"; 
             square.style.backgroundColor = "white";
             
-            container.appendChild(square);
+            row.appendChild(square);
 
             square.addEventListener("mousedown", paintSquare);
             square.addEventListener("mouseover", paintSquare);
@@ -57,8 +58,8 @@ function changeGridSize () {
         gridSize = newGridSize;
         span.textContent = gridSize;
 
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
+        while (canvas.firstChild) {
+            canvas.removeChild(canvas.firstChild);
         }
 
         drawCanvas();

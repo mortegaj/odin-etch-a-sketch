@@ -21,6 +21,7 @@ function drawCanvas() {
             square = document.createElement("div");
             square.classList.add("square");
             square.style.cssText = "width: " + squareWidth + "px; height: " + squareHeight + "px;"; 
+            square.style.backgroundColor = "white";
             
             container.appendChild(square);
 
@@ -31,7 +32,14 @@ function drawCanvas() {
 }
 
 function paintSquare(e) {
-    if (e.buttons) e.target.style.backgroundColor = "red";
+    if (e.buttons) {
+        if (e.target.style.backgroundColor === "white") {
+            e.target.style.backgroundColor = "black";
+            e.target.style.opacity = 0.1;
+        } else {
+            if (e.target.style.opacity < 1) e.target.style.opacity = parseFloat(e.target.style.opacity) + 0.1;
+        }
+    }
 }
 
 function changeGridSize () {

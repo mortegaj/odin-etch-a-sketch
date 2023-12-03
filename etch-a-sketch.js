@@ -7,6 +7,15 @@ const containerHeight = container.clientHeight
 const btn = document.querySelector("#change-size-btn");
 btn.addEventListener("click", changeGridSize);
 
+const resetCanvasBtn = document.querySelector("#reset-canvas-btn");
+resetCanvasBtn.addEventListener("click", () => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    drawCanvas();
+})
+
+
 const span = document.querySelector("#number-squares");
 
 drawCanvas();

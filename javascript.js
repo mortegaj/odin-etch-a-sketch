@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+const gridSizeBtn = document.querySelector("#grid-size-btn");
 
 function createGrid (height, width) {
     //Create "height" DIVs, one per line
@@ -25,3 +26,16 @@ container.addEventListener('mouseover', (e) => {
         target.classList.add("square-on");
     }
 });
+
+gridSizeBtn.addEventListener('click', () => {
+    let gridSize = prompt ("Enter a new grid size");
+    if (gridSize == null) return;
+    if (gridSize <= 100) {
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+        createGrid(gridSize,gridSize);
+    } else {
+        alert ("Maximum size is 100");
+    }
+})

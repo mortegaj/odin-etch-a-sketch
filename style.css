@@ -1,3 +1,24 @@
-p {
-    color: red;
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 500px;
+    height: 500px;
+    border: solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    flex: 1;
+    display: flex;
+}
+
+.square {
+    border: solid;
+    flex: 1;
 }

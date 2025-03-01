@@ -22,3 +22,7 @@ body {
     border: solid;
     flex: 1;
 }
+
+.square-on {
+    background-color: black;
+}

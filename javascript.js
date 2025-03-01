@@ -18,3 +18,10 @@ function createGrid (height, width) {
 }
 
 createGrid (16,16);
+
+container.addEventListener('mouseover', (e) => {
+    let target = e.target;
+    if (target.getAttribute("id") != "container") {
+        target.classList.add("square-on");
+    }
+});

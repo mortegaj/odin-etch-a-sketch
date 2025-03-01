@@ -1,5 +1,6 @@
 const container = document.querySelector("#container");
 const gridSizeBtn = document.querySelector("#grid-size-btn");
+const resetBtn = document.querySelector("#reset-btn");
 
 function createGrid (height, width) {
     //Create "height" DIVs, one per line
@@ -38,4 +39,11 @@ gridSizeBtn.addEventListener('click', () => {
     } else {
         alert ("Maximum size is 100");
     }
-})
+});
+
+resetBtn.addEventListener('click', () => {
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(element => {
+        element.classList.remove("square-on");
+    })
+});
